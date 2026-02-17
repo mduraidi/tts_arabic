@@ -29,8 +29,7 @@ files_dict = {
     },   
     'apnet2': {
         'file': 'data/apnet2.onnx',
-        'url': 'https://drive.google.com/file/d/1oNya-eTXB0_yqzHCIzPoHlJD1fwAUthI/view?usp=sharing',
-        'timestamp': 1726944289.8381343,
+        'url': None,
     },
     'vocos44': {
         'file': 'data/vocos44.onnx',

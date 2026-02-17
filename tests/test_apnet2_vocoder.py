@@ -1,5 +1,7 @@
 import unittest
 from unittest.mock import patch
+from pathlib import Path
+import tempfile
 
 from tts_arabic.models import core
 from tts_arabic.models.tts_models import FastPitch2Wave
@@ -8,6 +10,14 @@ from tts_arabic.models.tts_models import FastPitch2Wave
 class TestAPNet2VocoderSupport(unittest.TestCase):
     def test_apnet2_is_advertised_as_available_vocoder(self):
         self.assertIn('apnet2', core.get_available_models()['vocoders'])
+
+    @patch('tts_arabic.models.core.gdown.download')
+    def test_apnet2_requires_local_model_file_when_url_is_unset(
+            self, mock_download):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            with self.assertRaises(FileNotFoundError):
+                core.get_model_path(Path(tmpdir), 'apnet2')
+        mock_download.assert_not_called()
 
     @patch('tts_arabic.models.core.FastPitch2Wave')
     @patch('tts_arabic.models.core.get_model_path')
