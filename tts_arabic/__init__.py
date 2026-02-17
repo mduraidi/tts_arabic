@@ -8,7 +8,7 @@ exported to ONNX for fast CPU and GPU inference and are loaded lazily on first u
 Key features
 ------------
 - Neural Text→Mel synthesis (FastPitch, MixerTTS)
-- Neural vocoding via HiFi-GAN or Vocos
+- Neural vocoding via HiFi-GAN, Vocos, or APNet2
 - Support for:
   * Fully diacritized Arabic
   * Undiacritized Arabic with optional vowelization

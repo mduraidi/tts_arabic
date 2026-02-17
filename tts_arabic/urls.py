@@ -27,6 +27,11 @@ files_dict = {
         'url': 'https://drive.google.com/file/d/1oNya-eTXB0_yqzHCIzPoHlJD1fwAUthI/view?usp=sharing',
         'timestamp': 1726944289.8381343,
     },   
+    'apnet2': {
+        'file': 'data/apnet2.onnx',
+        'url': 'https://drive.google.com/file/d/1oNya-eTXB0_yqzHCIzPoHlJD1fwAUthI/view?usp=sharing',
+        'timestamp': 1726944289.8381343,
+    },
     'vocos44': {
         'file': 'data/vocos44.onnx',
         'url': 'https://drive.google.com/file/d/1Ra0aNGYgD_j0jHs3rmytFEP0_JoIM2GJ/view?usp=sharing',

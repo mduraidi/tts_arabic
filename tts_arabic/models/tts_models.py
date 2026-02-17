@@ -211,9 +211,11 @@ class FastPitch2Wave:
             self.mel2wave_model = HifiGanVocoder(sd_path_mel2wave,
                                                  sd_path_denoiser,
                                                  cuda=cuda)
-        else:
+        elif vocoder_id in ('vocos', 'vocos44', 'apnet2'):
             self.mel2wave_model = VocosVocoder(sd_path_mel2wave,                                          
                                                cuda=None)
+        else:
+            raise ValueError(f'Unsupported vocoder_id: {vocoder_id}')
         
         # self.hifigan_denoiser = HifiGanDenoiser(sd_path_denoiser, cuda=False)
     

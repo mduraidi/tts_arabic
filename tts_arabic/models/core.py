@@ -11,9 +11,9 @@ except:
     pass
 
 _MODEL_ID = Literal['fastpitch', 'mixer128', 'mixer80']
-_VOCODER_ID = Literal['hifigan', 'vocos', 'vocos44']
+_VOCODER_ID = Literal['hifigan', 'vocos', 'vocos44', 'apnet2']
 _vocoder_id_to_sr = {
-    'hifigan': 22050, 'vocos': 22050, 'vocos44': 44100,
+    'hifigan': 22050, 'vocos': 22050, 'vocos44': 44100, 'apnet2': 22050,
 }
 
 
