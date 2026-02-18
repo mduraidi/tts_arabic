@@ -11,9 +11,9 @@ except:
     pass
 
 _MODEL_ID = Literal['fastpitch', 'mixer128', 'mixer80']
-_VOCODER_ID = Literal['hifigan', 'vocos', 'vocos44']
+_VOCODER_ID = Literal['hifigan', 'vocos', 'vocos44', 'apnet2']
 _vocoder_id_to_sr = {
-    'hifigan': 22050, 'vocos': 22050, 'vocos44': 44100,
+    'hifigan': 22050, 'vocos': 22050, 'vocos44': 44100, 'apnet2': 22050,
 }
 
 
@@ -35,7 +35,12 @@ def get_model_path(package_path: Optional[Path] = None,
         model_path.parent.mkdir(parents=True)
     # or (model_path.lstat().st_mtime < file_entry.get('timestamp', 0)):
     if not model_path.exists():
-        gdown.download(file_entry['url'],
+        model_url = file_entry.get('url')
+        if model_url is None:
+            raise FileNotFoundError(
+                f"Missing model file: {model_path}. "
+                f"Download '{name}' and place it at this path.")
+        gdown.download(model_url,
                        output=model_path.as_posix(), fuzzy=True)
 
     return model_path.as_posix()

@@ -37,13 +37,14 @@ wave = tts(text_unvoc, play=True, vowelizer='shakkelha')
 |MixerTTS|mixer80|Text->Mel|1.5M|[arxiv](https://arxiv.org/abs/2110.03584)|Mel (80 bins)|
 |HiFi-GAN|hifigan|Vocoder|13.9M|[arxiv](https://arxiv.org/abs/2010.05646)|Wave (22.05kHz)|
 |Vocos|vocos|Vocoder|13.4M|[arxiv](https://arxiv.org/abs/2306.00814)|Wave (22.05kHz)|
+|APNet2|apnet2|Vocoder|N/A|N/A|Wave (22.05kHz)|
 |Vocos|vocos44|Vocoder|14.0M|[arxiv](https://arxiv.org/abs/2306.00814)|Wave (44.1kHz)|
 
 The sequence of transformations is as follows:
 
 *Text* &rarr; Phonemizer &rarr; *Phonemes* &rarr; Tokenizer &rarr; *Token Ids* &rarr; **Text->Mel** model &rarr; *Mel spectrogram* &rarr; **Vocoder** model &rarr; *Wave*
 
-The `Text->Mel` models map token ids to mel frames. All models use the 80 bin configuration proposed by [HiFi-GAN](https://github.com/jik876/hifi-gan). This mel spectrogram contains frequencies up to 8kHz. The `vocoder` models map the mel spectrogram to a waveform. The vocoders with `vocoder_id` `hifigan` and `vocos` artificially extend the bandwidth to 11025Hz, and `vocos44` to 22050Hz. Samples for comparing the models can be found [here](https://nipponjo.github.io/tts-arabic-speakers/#models-cmp).
+The `Text->Mel` models map token ids to mel frames. All models use the 80 bin configuration proposed by [HiFi-GAN](https://github.com/jik876/hifi-gan). This mel spectrogram contains frequencies up to 8kHz. The `vocoder` models map the mel spectrogram to a waveform. The vocoders with `vocoder_id` `hifigan`, `vocos`, and `apnet2` artificially extend the bandwidth to 11025Hz, and `vocos44` to 22050Hz. Samples for comparing the models can be found [here](https://nipponjo.github.io/tts-arabic-speakers/#models-cmp).
 
 **Manuscript**
 
